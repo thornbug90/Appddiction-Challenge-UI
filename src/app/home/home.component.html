@@ -23,37 +23,39 @@
             </div>
         </div>
         <div class="col">
-            <div>
-                <h1>List Of People</h1>
-                <hr>
-            </div>
-            <mat-table [dataSource]="datasource">
-                <ng-container matColumnDef="firstName">
-                    <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-                    <mat-cell *matCellDef="let person"> {{ person?.firstName }}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="lastName">
-                    <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
-                    <mat-cell *matCellDef="let person"> {{ person?.lastName }}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="career">
-                    <mat-header-cell *matHeaderCellDef>Career</mat-header-cell>
-                    <mat-cell *matCellDef="let person"> {{ person?.career }}</mat-cell>
-                </ng-container>
-
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-            </mat-table>
-            <!-- <div *ngFor="let p of people">
-                <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
-            </div> -->
-            <br>
-            <div>
-                <a mat-stroked-button class="" (click)="openAddModal()">
-                    Add
-                    <mat-icon class="ml-3">group_add</mat-icon>
-                </a>
+            <h1>List Of People</h1>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <mat-table [dataSource]="datasource">
+                        <ng-container matColumnDef="firstName">
+                            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+                            <mat-cell *matCellDef="let person"> {{ person?.firstName }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="lastName">
+                            <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+                            <mat-cell *matCellDef="let person"> {{ person?.lastName }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="career">
+                            <mat-header-cell *matHeaderCellDef>Career</mat-header-cell>
+                            <mat-cell *matCellDef="let person"> {{ person?.career }}</mat-cell>
+                        </ng-container>
+    
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+                    </mat-table>
+                    <!-- <div *ngFor="let p of people">
+                        <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
+                    </div> -->
+                    <br>
+                    <div>
+                        <a mat-stroked-button class="" (click)="openAddModal()">
+                            Add
+                            <mat-icon class="ml-3">group_add</mat-icon>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
