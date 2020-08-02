@@ -7,7 +7,7 @@ import { PersonService } from './services/person.service';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit {
-  title = 'appddiction-challenge-ui';
+  title = 'appddiction-challenge';
 
   constructor() {}
 

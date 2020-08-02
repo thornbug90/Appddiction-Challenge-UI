@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../services/person.service';
 import { ModalDialogComponent } from '../modals/modal-dialog/modal-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,12 @@ import { MatDialog } from '@angular/material/dialog';
 export class HomeComponent implements OnInit {
   title = 'appddiction-challenge-ui';
   people: any[] = [];
+  public displayedColumns: string[] = [
+    'firstName',
+    'lastName',
+    'career'
+  ]
+  datasource;
 
   constructor(
     private personSvc: PersonService,
@@ -18,7 +25,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPeopleList()
+    this.getPeopleList();
+    this.personSvc.getAllRegisteredUsers().subscribe(data => {
+      this.datasource = new MatTableDataSource<any[]>(data);
+    });
   }
 
   getPeopleList() {
@@ -38,6 +48,7 @@ export class HomeComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
+      this.getPeopleList();
     })
   }
 

@@ -1,26 +1,60 @@
-<div class="container">
+<div class="container-fluid">
+    <div class="row justify-content-center py-5">
+        <h1 class="large-heading">Technical Challenge</h1>
+    </div>
+</div>
+<div class="container pt-5">
     <div class="row">
-        <div>
-            <h1 class="">Test Challenge</h1>
+        <div class="col">
+            <h1>To Do</h1>
+            <div class="row">
+                <div class="col-6">
+                    <hr>
+                    <p>
+                        As a user, I would like to click the add button and fill out the form in the modal to add a new entry to the list.
+                    </p>
+                    <p>
+                        As a user, I would like to have the ability to delete an entry from the list.
+                    </p>
+                    <p>
+                        As a user, after deleting an entry from the list, I would like to recieve a confirmation either in a modal or a toaster notification.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <div>
-            <h1>List Of People</h1>
-        </div>
-    </div>
-    <div>
-        <div *ngFor="let p of people">
-            <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
-        </div>
-    </div>
-    <br>
-    <div>
-        <div>
-            <a mat-stroked-button class="" (click)="openAddModal()">
-                Add
-                <mat-icon>group_add</mat-icon>
-            </a>
+        <div class="col">
+            <div>
+                <h1>List Of People</h1>
+                <hr>
+            </div>
+            <mat-table [dataSource]="datasource">
+                <ng-container matColumnDef="firstName">
+                    <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+                    <mat-cell *matCellDef="let person"> {{ person?.firstName }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="lastName">
+                    <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+                    <mat-cell *matCellDef="let person"> {{ person?.lastName }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="career">
+                    <mat-header-cell *matHeaderCellDef>Career</mat-header-cell>
+                    <mat-cell *matCellDef="let person"> {{ person?.career }}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
+            <!-- <div *ngFor="let p of people">
+                <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
+            </div> -->
+            <br>
+            <div>
+                <a mat-stroked-button class="" (click)="openAddModal()">
+                    Add
+                    <mat-icon class="ml-3">group_add</mat-icon>
+                </a>
+            </div>
         </div>
     </div>
 </div>
