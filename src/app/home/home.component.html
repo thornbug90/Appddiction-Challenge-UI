@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <h1 class="">Test Challenge</h1>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h1>List Of People</h1>
+        </div>
+    </div>
+    <div>
+        <div *ngFor="let p of people">
+            <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div>
+            <a mat-stroked-button class="" (click)="openAddModal()">
+                Add
+                <mat-icon>group_add</mat-icon>
+            </a>
+        </div>
+    </div>
+</div>

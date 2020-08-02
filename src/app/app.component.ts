@@ -8,19 +8,8 @@ import { PersonService } from './services/person.service';
 })
 export class AppComponent implements OnInit {
   title = 'appddiction-challenge-ui';
-  people: any[] = [];
 
-  constructor(private personSvc: PersonService) {}
-  ngOnInit() {
-    this.getPeopleList();
-  }
+  constructor() {}
 
-  getPeopleList() {
-    this.personSvc
-      .getAllRegisteredUsers()
-      .toPromise()
-      .then((res) => {
-        this.people = res;
-      });
-  }
+  ngOnInit() {}
 }
