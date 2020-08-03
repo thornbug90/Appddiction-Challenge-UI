@@ -1,0 +1,12 @@
+<div class="row w-100 justify-content-end align-items-end">
+    <button mat-mini-fab color="primary" [mat-dialog-close]="false" >
+        <mat-icon matSuffix>clear</mat-icon>
+    </button>
+</div>
+<div class="row mt-5">
+    <div class="col">
+        <h3>Are you sure you want to delete?</h3>
+        <button mat-stroked-button  type="submit" (click)="onConfirmDelete()">Confirm</button>
+    </div>
+
+</div>

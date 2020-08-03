@@ -3,6 +3,7 @@ import { PersonService } from '../services/person.service';
 import { ModalDialogComponent } from '../modals/modal-dialog/modal-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { DeleteConfirmationModalComponent } from '../modals/delete-confirmation-modal/delete-confirmation-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   public displayedColumns: string[] = [
     'firstName',
     'lastName',
-    'career'
+    'career',
+    'delete'
   ]
   datasource;
 
@@ -47,8 +49,19 @@ export class HomeComponent implements OnInit {
       disableClose: true
     });
     dialogRef.afterClosed().subscribe(res => {
-      console.log(res);
-      this.getPeopleList();
+      this.ngOnInit();
+    })
+  }
+
+  onDelete(value) {
+    console.log(value);
+    const dialogRef = this.dialog.open(DeleteConfirmationModalComponent, {
+      panelClass: 'delete-confirmation-modal',
+      data: {value},
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
     })
   }
 

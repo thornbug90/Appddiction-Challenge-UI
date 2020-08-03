@@ -18,4 +18,8 @@ export class PersonService {
     return this.http.post(`${environment.url}/person/save`, ob) as Observable<any>;
   }
 
+  deleteEntry(id: string) {
+    return this.http.post(environment.url + '/person/delete', id) as Observable<any>;
+  }
+
 }

@@ -11,13 +11,14 @@
                 <div class="col-6">
                     <hr>
                     <p>
-                        As a user, I would like to click the add button and fill out the form in the modal to add a new entry to the list.
+                        As a user, I would like to click the add button and fill out the form in the modal to add a new
+                        entry to the list.
                     </p>
                     <p>
                         As a user, I would like to have the ability to delete an entry from the list.
                     </p>
                     <p>
-                        As a user, after deleting an entry from the list, I would like to recieve a confirmation either in a modal or a toaster notification.
+                        As a user, I would like to recieve a notification to confirm the deletion of an entry
                     </p>
                 </div>
             </div>
@@ -40,10 +41,18 @@
                             <mat-header-cell *matHeaderCellDef>Career</mat-header-cell>
                             <mat-cell *matCellDef="let person"> {{ person?.career }}</mat-cell>
                         </ng-container>
-    
+                        <ng-container matColumnDef='delete'>
+                            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+                            <mat-cell *matCellDef="let person">
+                                <a class="delete-anchor-tag" (click)="onDelete(person.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </a>
+                            </mat-cell>
+                        </ng-container>
+
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    
+
                     </mat-table>
                     <!-- <div *ngFor="let p of people">
                         <h3>{{p.firstName}} , {{p.lastName}} = {{p.career}}</h3>
