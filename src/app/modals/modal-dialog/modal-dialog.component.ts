@@ -38,7 +38,6 @@ export class ModalDialogComponent implements OnInit {
 
     console.log(ob);
     this.ps.addPerson(ob).toPromise().then(res => {
-      console.log(res);
     });
     this.dialogRef.close({
       message: 'dialog closed'

@@ -27,7 +27,7 @@ export class DeleteConfirmationModalComponent implements OnInit {
   onConfirmDelete() {
   
     this.ps.deleteEntry(this.id).toPromise().then(res => {
-      console.log(res);
+      
     });
     this.dialogRef.close();
     // this.snotify.success('Contact deleted :)');
