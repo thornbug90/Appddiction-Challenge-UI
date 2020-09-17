@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "appddiction-challenge-ui"
+  "defaultProject": "appddiction-challenge-ui",
+  "cli": {
+    "analytics": "6957d9c4-b1c8-4492-bc63-5fecc36a5009"
+  }
 }
